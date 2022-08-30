@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  margin-top: 250px;
+}
+.todo {
+  width: 300px;
+  margin: 10px auto;
+  background: rgb(159, 251, 251);
+  padding: 3px;
+  position: relative;
+}
+.todo .exit-btn {
+  position: absolute;
+  right: 2px;
+  top: 1px;
+  padding: none;
+}
