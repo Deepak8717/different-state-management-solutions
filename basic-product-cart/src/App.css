@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  max-width: 400px;
+  row-gap: 20px;
+  column-gap: 10px;
+}
+.cart {
+  padding: 40px;
+  width: 100px;
+  height: 100px;
+  background: aqua;
+  margin: 0 auto;
+}
+.btn-add-cart {
+  padding: 10px;
+  background: #322d2d;
+  color: wheat;
+  font-weight: bold;
+  outline: none;
+  border: none;
+}
+.header {
+  background-color: black;
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.cart-parent {
+  position: relative;
+}
+.cart-container {
+  width: 200px;
+  min-height: 50px;
+  background: #fff;
+  position: absolute;
+  top: 60px;
+  right: -6px;
+  border: 2px solid #141313;
+  color: black;
+  padding: 10px;
+  text-align: center;
+}
+.btn-cart-exit {
+  position: absolute;
+  right: 10px;
+}
