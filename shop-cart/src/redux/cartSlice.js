@@ -12,12 +12,13 @@ const cartSlice = createSlice({
       if (state.cartItems.length > 0) {
         //second time onward
         state.cartItems.map((item) => {
+          //if item exist
           if (item.id === actions.payload.id) {
             doesItemExist = true;
             item.quantity++;
           }
         });
-        //push only those item doesn't already exist
+        //if item doesn't exit push
         if (!doesItemExist) {
           const product = { ...actions.payload, quantity: 1 };
           state.cartItems = [...state.cartItems, product];
@@ -27,19 +28,24 @@ const cartSlice = createSlice({
         const product = { ...actions.payload, quantity: 1 };
         state.cartItems = [...state.cartItems, product];
       }
-      console.log(state.cartItems);
+      state.totalAmount += actions.payload.price;
+      console.log(state.totalAmount);
     },
-    removeFromCart: () => {
-      console.log("item removed");
+    removeFromCart: (state, actions) => {
+      state.cartItems = state.cartItems.filter((item) => {
+        return item.id !== actions.payload.id;
+      });
+      state.totalAmount -= actions.payload.quantity * actions.payload.price;
     },
     addItemQuantity: () => {
       console.log("Quanty added");
     },
-    substractItemQuantity: () => {
+    subtractItemQuantity: () => {
       console.log("Item Quantity substracted");
     },
-    clearCart: () => {
-      console.log("Cart cleared");
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalAmount = 0;
     },
   },
 });
@@ -48,7 +54,7 @@ export const {
   addToCart,
   removeFromCart,
   addItemQuantity,
-  substractItemQuantity,
+  subtractItemQuantity,
   clearCart,
 } = cartSlice.actions;
 
