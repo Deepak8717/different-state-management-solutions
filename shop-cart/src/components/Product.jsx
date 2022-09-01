@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { addToCart } from "../redux/cartSlice";
 
 const Product = (product) => {
@@ -15,7 +16,7 @@ const Product = (product) => {
         <h3>${price}</h3>
       </div>
       <div className="buttons">
-        <button>Product details</button>
+        <Link to={`/products/${id}`}>Product details</Link>
         <button onClick={() => dispatch(addToCart(product))}>
           Add to cart
         </button>

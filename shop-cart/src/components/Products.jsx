@@ -7,14 +7,18 @@ import axios from "axios";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
         const { data } = await axios.get("https://fakestoreapi.com/products");
+        setError(null);
         setProducts(data);
         setLoading(false);
       } catch (error) {
+        setLoading(false);
+        setError(error);
         console.error(error);
       }
     };
@@ -25,6 +29,8 @@ const Products = () => {
     <div className="Products container">
       {loading ? (
         <Loading />
+      ) : error ? (
+        <>{error.message}</>
       ) : (
         products.map((product) => {
           return <Product key={product.id} {...product} />;
