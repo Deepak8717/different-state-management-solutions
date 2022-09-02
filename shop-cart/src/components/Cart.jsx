@@ -17,7 +17,7 @@ const Cart = () => {
         ))}
       </div>
       <div className="product-title cart-amount-footer">
-        <button onClick={() => dispatch(clearCart())}>Clear The cart</button>
+        <button onClick={() => dispatch(clearCart())}>Clear All</button>
         <h2 className="total">Total Amount: ${totalAmount.toFixed(2)}</h2>
       </div>
     </div>

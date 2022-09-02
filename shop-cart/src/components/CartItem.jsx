@@ -26,7 +26,7 @@ const CartItem = (props) => {
         <button onClick={() => dispatch(subtractItemQuantity(props))}>
           <IoRemoveSharp />
         </button>
-        <p>{quantity}</p>
+        <p style={quantity === 0 ? { color: "gray" } : {}}>{quantity}</p>
         <button onClick={() => dispatch(addItemQuantity(props))}>
           <IoAddSharp />
         </button>
